@@ -17,7 +17,7 @@ defmodule XMLMapper.Mixfile do
   end
 
   defp deps do
-    [{:erlsom, git: "https://github.com/willemdj/erlsom.git", ref: "833fa057d199e0c9dc0232d560d2f742c57476b0"}]
+    [{:erlsom, "~> 1.4"}]
   end
 
   defp description do
