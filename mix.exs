@@ -17,7 +17,10 @@ defmodule XMLMapper.Mixfile do
   end
 
   defp deps do
-    [{:erlsom, "~> 1.4"}]
+    [
+      {:ex_doc, "~> 0.14", only: :dev},
+      {:erlsom, "~> 1.4"}
+    ]
   end
 
   defp description do
