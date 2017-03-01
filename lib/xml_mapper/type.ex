@@ -24,10 +24,16 @@ defmodule XMLMapper.Type do
     value
     |> to_string
   end
-  def cast(:datetime, value, _opts) do
+  def cast(:naive_datetime, value, _opts) do
     value
     |> to_string
     |> NaiveDateTime.from_iso8601
+    |> elem(1)
+  end
+  def cast(:datetime, value, _opts) do
+    value
+    |> to_string
+    |> DateTime.from_iso8601
     |> elem(1)
   end
   def cast(:boolean, value, _opts) do

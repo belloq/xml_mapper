@@ -21,8 +21,9 @@ defmodule XMLMapper.TypeCastTest do
   end
 
   test "convert to datetime" do
-    assert XMLMapper.Type.cast(:datetime, "2017-02-11 01:25:35") == ~N[2017-02-11 01:25:35]
-    assert XMLMapper.Type.cast(:datetime, "2017-02-11T01:25:35.766Z") == ~N[2017-02-11 01:25:35.766]
+    assert XMLMapper.Type.cast(:naive_datetime, "2017-02-11 01:25:35") == ~N[2017-02-11 01:25:35]
+    assert XMLMapper.Type.cast(:naive_datetime, "2017-02-11T01:25:35.766Z") == ~N[2017-02-11 01:25:35.766]
+    assert XMLMapper.Type.cast(:datetime, "2017-03-01T17:00:06+04:00") == %DateTime{year: 2017, month: 3, day: 1, hour: 13, minute: 0, second: 6, std_offset: 0, time_zone: "Etc/UTC", utc_offset: 0, zone_abbr: "UTC"}
   end
 
   test "convert to boolean" do
