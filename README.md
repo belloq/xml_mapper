@@ -41,3 +41,4 @@ Product.to_struct("<ProductItem><ID>2</ID><Name>Product2</Name></ProductItem>")
 - [ ] escape html characters
 - [ ] cdata
 - [ ] prefixes
+- [ ] override tag name of sub-items in has_many
