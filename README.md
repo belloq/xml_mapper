@@ -38,7 +38,7 @@ Product.to_struct("<ProductItem><ID>2</ID><Name>Product2</Name></ProductItem>")
 ## TODO
 - [ ] default values
 - [ ] value parser callback
-- [ ] escape html characters
+- [x] escape html characters
 - [ ] cdata
 - [ ] prefixes
 - [ ] override tag name of sub-items in has_many

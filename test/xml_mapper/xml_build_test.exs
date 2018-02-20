@@ -15,8 +15,16 @@ defmodule XmlBuildTest do
     assert SimpleTwo.to_xml(%{id: 1, name: "Test"}) == ~s|<?xml version="1.0" encoding="UTF-8"?><SimpleTwo><Id>1</Id><Name>Test</Name></SimpleTwo>|
   end
 
+  test "Simple struct - escape" do
+    assert SimpleTwo.to_xml(%{id: 1, name: "Test & test"}) == ~s|<?xml version="1.0" encoding="UTF-8"?><SimpleTwo><Id>1</Id><Name>Test &amp; test</Name></SimpleTwo>|
+  end
+
   test "Nested struct" do
     assert SimpleThree.to_xml(%{id: 1, name: "Test", sub_element: %{id: 2, name: "Sub"}}) == ~s|<?xml version="1.0" encoding="UTF-8"?><SimpleThree><Id>1</Id><Name>Test</Name><SimpleTwo><Id>2</Id><Name>Sub</Name></SimpleTwo></SimpleThree>|
+  end
+
+  test "Nested struct - escape" do
+    assert SimpleThree.to_xml(%{id: 1, name: "Test", sub_element: %{id: 2, name: "Sub & <sub>"}}) == ~s|<?xml version="1.0" encoding="UTF-8"?><SimpleThree><Id>1</Id><Name>Test</Name><SimpleTwo><Id>2</Id><Name>Sub &amp; &lt;sub&gt;</Name></SimpleTwo></SimpleThree>|
   end
 
   test "Renamed tags struct" do

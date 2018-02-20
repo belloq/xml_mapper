@@ -33,7 +33,8 @@ defmodule XMLMapper do
         generate({root_tag(), __MODULE__, []}, xml_content, false, 0)
       end
       def generate({name, type, opts}, struct, indent) when is_map(struct) and indent == 0 do
-        generate({name, type, opts}, List.flatten([Map.get(struct, name)]), Code.ensure_loaded?(type), indent + 1)
+        content = XMLMapper.Value.escape(Map.get(struct, name))
+        generate({name, type, opts}, List.flatten([content]), Code.ensure_loaded?(type), indent + 1)
       end
       def generate(_tuple, [nil], is_module, _indent) when is_module == true do
         ""
