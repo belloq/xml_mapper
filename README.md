@@ -42,3 +42,5 @@ Product.to_struct("<ProductItem><ID>2</ID><Name>Product2</Name></ProductItem>")
 - [ ] cdata
 - [ ] prefixes
 - [ ] override tag name of sub-items in has_many
+- [ ] rename no_escape flag to escape
+- [ ] add escape flag to modules & global settings
